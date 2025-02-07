@@ -1,0 +1,23 @@
+<h2>Localidades</h2>
+<ul class="localidades">
+    <li *ngFor="let localidad of localidades">
+      <a routerLink="/detail/{{localidad.id}}">
+        <span class="badge">{{localidad.id}}</span> {{localidad.localidad}}
+      </a>
+     
+    </li>
+</ul>
+
+<table>
+<tr  *ngFor="let localidad of localidades">
+<td>{{localidad.id}}</td>
+<td>{{localidad.id_provincias}}</td>
+<td>{{localidad.localidad}}</td>
+<td>{{localidad.cp}}</td>
+<td>{{localidad.activo}}</td>
+<td> <button [class.selected]="localidad === selectedLocalidad" type="button" (click)="onSelect(localidad)"></button></td>
+</tr>
+
+</table>
+
+<app-localidad-detail [localidad]="selectedLocalidad"></app-localidad-detail>
