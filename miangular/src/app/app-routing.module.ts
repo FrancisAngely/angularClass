@@ -11,6 +11,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ContactosComponent } from './contactos/contactos.component';
 import { ContactoDetailComponent } from './contacto-detail/contacto-detail.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -24,10 +25,16 @@ const routes: Routes = [
   { path: 'clientes/detail/:id', component: ClienteDetailComponent },
   { path: 'contactos', component: ContactosComponent },
   { path: 'contactos/detail/:id', component: ContactoDetailComponent },
+  // Añadimos una ruta wildcard para manejar rutas no encontradas
+  { path: '**', redirectTo: '/dashboard' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: false, // Cambia a true si prefieres usar el modo hash
+    enableTracing: false, // Para depuración
+    scrollPositionRestoration: 'enabled' // Restaura la posición del scroll
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

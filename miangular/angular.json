@@ -26,10 +26,8 @@
             "outputPath": "dist/miangular",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "@angular/localize/init"],
+            "allowedCommonJsDependencies": ["sweetalert2"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -59,8 +57,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -78,8 +76,13 @@
           },
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "watch": true,
+            "liveReload": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "miangular:build:production"
@@ -108,15 +111,14 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
       }
     }
   },
+
   "cli": {
     "analytics": "6971df41-d0dd-4a52-8766-0aaca6c4ac4f"
   }

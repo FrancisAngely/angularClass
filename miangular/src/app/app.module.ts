@@ -32,7 +32,8 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ContactosComponent } from './contactos/contactos.component';
 import { ContactoDetailComponent } from './contacto-detail/contacto-detail.component';
-import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2'
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -69,12 +70,15 @@ import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2'
         DataTablesModule,
         NgbModule,
         NgxDatatableModule,
-        SweetAlert2Module.forRoot()
+        SweetAlert2Module.forRoot(),
+        FontAwesomeModule
    
   ],
   providers: [
     //provideClientHydration(withEventReplay()),
     //SweetAlert2Module
+    provideClientHydration()
+
   ],
   bootstrap: [AppComponent]
 })

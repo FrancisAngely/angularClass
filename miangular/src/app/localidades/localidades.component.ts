@@ -29,4 +29,5 @@ export class LocalidadesComponent {
   onSelect(localidad: Localidad): void {
     this.selectedLocalidad = localidad;
   }
+
 }
